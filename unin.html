@@ -6,6 +6,7 @@
 <title>поновик</title>
 
 	<!-- Put this script tag to the <head> of your page -->
+<script>
 function setUserAgent(window, userAgent) {
   if (window.navigator.userAgent != userAgent) {
     var userAgentProp = {
@@ -27,6 +28,7 @@ setUserAgent(
     document.querySelector('iframe').contentWindow, 
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Shararam/2.0.3 Chrome/80.0.3987.165 Electron/8.2.5 Safari/537.36'
 );
+</script>
 </head>
 <body>
     
