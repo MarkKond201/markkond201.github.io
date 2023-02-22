@@ -6,7 +6,27 @@
 <title>поновик</title>
 
 	<!-- Put this script tag to the <head> of your page -->
+function setUserAgent(window, userAgent) {
+  if (window.navigator.userAgent != userAgent) {
+    var userAgentProp = {
+      get: function() {
+        return userAgent;
+      }
+    };
+    try {
+      Object.defineProperty(window.navigator, 'userAgent', userAgentProp);
+    } catch (e) {
+      window.navigator = Object.create(navigator, {
+        userAgent: userAgentProp
+      });
+    }
+  }
+}
 
+setUserAgent(
+    document.querySelector('iframe').contentWindow, 
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Shararam/2.0.3 Chrome/80.0.3987.165 Electron/8.2.5 Safari/537.36'
+);
 </head>
 <body>
     
@@ -19,10 +39,11 @@
 </embed>
 </object>
 <object width="550" height="400">
-<param name="movie" value="sharaball.ru/base.swf?v=21">
-<embed flashvars="game_server=https%3A%2F%2Fwww.shararam.ru%2F&amp;url_path_server=https%3A%2F%2Fsharaball.ru%2F&amp;portal_url=https%3A%2F%2Fwww.shararam.ru%2F&amp;start_step=0&amp;manual_server_selection=&amp;domainId=1&amp;useHashInName=true&amp;splcid=SP352856815&amp;client=1" pluginspage="http://www.macromedia.com/go/getflashplayer" src="sharaball.ru/base.swf?v=21" type="application/x-shockwave-flash" width="1" align="center" id="base" bgcolor="#ffffff" name="base" menu="true" allowfullscreen="true" allowscriptaccess="always">
+<param name="movie" value="https://sharaball.ru/base.swf?v=21">
+<embed flashvars="game_server=https%3A%2F%2Fwww.shararam.ru%2F&amp;url_path_server=https%3A%2F%2Fsharaball.ru%2F&amp;portal_url=https%3A%2F%2Fwww.shararam.ru%2F&amp;start_step=0&amp;manual_server_selection=&amp;domainId=1&amp;useHashInName=true&amp;splcid=SP352856815&amp;client=1" pluginspage="http://www.macromedia.com/go/getflashplayer" src="https://sharaball.ru/base.swf?v=21" type="application/x-shockwave-flash" width="1" align="center" id="base" bgcolor="#ffffff" name="base" menu="true" allowfullscreen="true" allowscriptaccess="always">
 </embed>
 </object>
 Понорам
+<iframe src="https://shararam.ru" height="500px" width="500px"></iframe>
 </body>
 </html>
